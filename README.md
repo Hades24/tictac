@@ -2,4 +2,4 @@
  Simple Tic Tac Game
 
 
-Visit https://tic-tacgame.web.app or  https://tic-tacgame.firebaseapp.com
+Visit https://tic-tacgame.web.app or  https://tic-tacgame.firebaseapp.com to play the game :)
