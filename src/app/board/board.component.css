@@ -1,0 +1,35 @@
+.wrapp {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 0px;
+    
+}
+
+.txt{
+    color:whitesmoke;
+
+}
+
+
+  
+.square {
+    border: 1px seagreen solid;
+    height: 10rem;
+    
+}
+
+@media screen and (max-width: 550px){
+    .wrapp {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 0px;
+        
+    }
+      
+    .square {
+        border: 1px seagreen solid;
+        height: 8rem;
+        
+        
+    }
+} 

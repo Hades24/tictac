@@ -1,0 +1,3 @@
+<button class="button is-primary btn" *ngIf="!value">{{ value }}</button>
+    <button  class ="button is-link btn"  *ngIf="value == 'X'">{{ value }}</button>
+    <button  *ngIf="value == 'O'"  class="button is-warning btn">{{ value }}</button>

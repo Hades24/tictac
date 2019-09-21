@@ -1,0 +1,22 @@
+<h1 class="title txt">Current Player: {{ player }} </h1>
+
+<button class="button is-danger is-outlined is-medium "(click)="newGame()">Start new Game</button>
+<br>
+<br>
+
+<h2 class="subtitle txt" *ngIf="winner">
+    Player {{ winner }} won the game!
+</h2>
+
+
+<main class = "wrapp" >
+    <app-square class="square"
+        *ngFor="let val of squares; let i = index" 
+        [value]="val"
+        (click)="makeMove(i)"> 
+
+    </app-square>
+</main>
+<br>
+<br>
+<button *ngIf="pwa.promptEvent" class="button is-success is-inverted is-outlined" (click) = "installPwa()"> Install App</button>
