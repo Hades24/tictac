@@ -8,6 +8,10 @@
     Player {{ winner }} won the game!
 </h2>
 
+<h2 class="subtitle txt" *ngIf="counter == 9 && !winner">
+    Its a Tie... Try again !!!
+</h2>
+
 
 <main class = "wrapp" >
     <app-square class="square"
