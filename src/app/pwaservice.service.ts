@@ -19,15 +19,10 @@ export class PWAServiceService {
       this.promptEvent = event;
     });
 
-    this.promf();
    }
 
 
-   promf(){
-    window.addEventListener('beforeinstallprompt', event => {
-      this.promptEvent = event;
-    });
-   }
+
 
 }
 
