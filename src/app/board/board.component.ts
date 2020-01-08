@@ -37,12 +37,11 @@ export class BoardComponent implements OnInit {
       this.squares.splice(idx, 1, this.player);
       this.xIsNext = !this.xIsNext;
       this.counter += 1;
-      console.log(this.counter)
 
     }
 
     this.winner = this.calculateWinner();
-    if (this.counter <= 9 && !this.xIsNext && !this.winner) {
+    if (this.counter <= 8 && !this.xIsNext && !this.winner) {
       // this.counter += 1;
       this.compMove(idx);
     }
