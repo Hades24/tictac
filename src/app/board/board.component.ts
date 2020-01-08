@@ -12,6 +12,7 @@ export class BoardComponent implements OnInit {
   xIsNext: boolean;
   winner: string;
   counter: number;
+  cSquare: number[];
 
   constructor(public pwa: PWAServiceService) { }
 
@@ -24,6 +25,7 @@ export class BoardComponent implements OnInit {
     this.winner = null;
     this.xIsNext = true;
     this.counter = 0;
+    this.cSquare = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   }
 
   get player() {
@@ -31,16 +33,27 @@ export class BoardComponent implements OnInit {
   }
 
   makeMove(idx: number) {
-    if (!this.squares[idx]) {
+    if (!this.squares[idx] && !this.winner) {
       this.squares.splice(idx, 1, this.player);
       this.xIsNext = !this.xIsNext;
       this.counter += 1;
+      console.log(this.counter)
 
     }
 
     this.winner = this.calculateWinner();
+    if (this.counter <= 9 && !this.xIsNext && !this.winner) {
+      // this.counter += 1;
+      this.compMove(idx);
+    }
   }
 
+  compMove(idx: number) {
+    idx = this.cSquare.indexOf(idx);
+    this.cSquare.splice(idx, 1);
+    const index = Math.floor(Math.random() * this.cSquare.length);
+    this.makeMove(this.cSquare[index]);
+  }
   installPwa(): void {
     this.pwa.promptEvent.prompt();
   }
