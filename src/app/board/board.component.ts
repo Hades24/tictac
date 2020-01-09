@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PWAServiceService } from '../pwaservice.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-board',
@@ -13,23 +14,44 @@ export class BoardComponent implements OnInit {
   winner: string;
   counter: number;
   cSquare: number[];
+  human: string;
+  mode: string;
 
-  constructor(public pwa: PWAServiceService) { }
+  constructor(public pwa: PWAServiceService, private router: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activeRoute.paramMap.subscribe( (route: any) => {
+      this.human = route.params.player;
+      this.mode = route.params.mode;
+      if (this.human === 'X') {
+        this.newGame();
+        console.log('Comp');
+      } else if (this.human === 'O') {
+        this.newGame();
+      } else {
+        this.router.navigate(['/home']);
+      }
+    });
     this.newGame();
   }
 
-  newGame() {
+  home() {
+    this.router.navigate(['/home']);
+  }
+
+  newGame( ) {
     this.squares = Array(9).fill(null);
     this.winner = null;
-    this.xIsNext = true;
+    this.xIsNext = true ;
     this.counter = 0;
     this.cSquare = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    if (this.human === 'X') {
+      this.compMove();
+    }
   }
 
   get player() {
-    return this.xIsNext ? 'X' : 'O';
+    return this.xIsNext ? 'O' : 'X';
   }
 
   makeMove(idx: number) {
@@ -41,21 +63,37 @@ export class BoardComponent implements OnInit {
     }
 
     this.winner = this.calculateWinner();
-    if (this.counter <= 8 && !this.xIsNext && !this.winner) {
-      // this.counter += 1;
-      this.compMove(idx);
+    if (this.human !== 'O') {
+      if (this.counter <= 8 && (this.xIsNext) && !this.winner) {
+        // this.counter += 1;
+        this.compMove(idx);
+      }
+    } else {
+      if (this.counter <= 8 && (!this.xIsNext) && !this.winner) {
+        // this.counter += 1;
+        this.compMove(idx);
+      }
     }
   }
 
-  compMove(idx: number) {
+  compMove(idx: number = null) {
+    if (this.mode === '2P') {
+      return;
+    }
+    if (idx) {
     idx = this.cSquare.indexOf(idx);
     this.cSquare.splice(idx, 1);
+    }
     const index = Math.floor(Math.random() * this.cSquare.length);
     this.makeMove(this.cSquare[index]);
   }
+
+
+
   installPwa(): void {
     this.pwa.promptEvent.prompt();
   }
+
   calculateWinner() {
     const lines = [
       [0, 1, 2],

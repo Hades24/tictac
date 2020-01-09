@@ -1,3 +1,15 @@
+.content {
+	/* margin: 10%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 40px;
+    /* overflow: auto; */
+	flex-direction: column;
+
+}
+
 .wrapp {
     display: grid;
     grid-template-columns: 200px 200px 200px;
@@ -21,7 +33,7 @@
 @media screen and (max-width: 550px){
     .wrapp {
         display: grid;
-        grid-template-columns: 33% 33% 33%;
+        grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 0px;
         
     }
@@ -31,5 +43,12 @@
         height: 8rem;
         
         
+    }
+
+    .content{
+        display: block;
+        margin: 2%;
+        margin-top: 5%;
+        width: 95%;
     }
 } 

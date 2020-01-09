@@ -1,9 +1,18 @@
-.container {
+/* .container {
     margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
 }
 
 @media screen and (max-width: 980px){
     .container{
-        margin: 4%;
+       display: grid;
+       grid-template-columns: auto;
     }
-}
+    router-outlet{
+        width: 350px;
+    }
+} */

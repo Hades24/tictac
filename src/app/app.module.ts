@@ -7,12 +7,16 @@ import { SquareComponent } from './square/square.component';
 import { BoardComponent } from './board/board.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { TossComponent } from './toss/toss.component';
+import { SelectComponent } from './select/select.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SquareComponent,
-    BoardComponent
+    BoardComponent,
+    TossComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,

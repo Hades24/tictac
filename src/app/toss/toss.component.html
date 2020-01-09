@@ -1,0 +1,21 @@
+<h1>Lets Toss</h1>
+
+<div class="content">
+
+    <div class="card ">
+        <div class="card-content is-centered ">
+            <div #outcome class="outcome">
+      
+            </div>
+            <div class="buttons">
+                <button class="button is-primary is-fullwidth" (click)="coinfFlip()">Flip Coin</button>
+            </div>
+            <p class="content is-large txt" *ngIf="player">{{message}} {{player}}</p>
+            <div class="buttons"  >
+                <button *ngIf="player" class="button is-success is-fullwidth" (click)="begin()">Lets Begin</button>
+                <button class="button is-outlined is-link" routerLink = "/home">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+

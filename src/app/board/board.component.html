@@ -1,7 +1,7 @@
-<h1 class="title txt">Current Player: {{ player }} </h1>
+<div class="content">
+    <h1 class="title txt">Current Player: {{ player }} </h1>
 
 <button class="button is-danger is-outlined is-medium "(click)="newGame()">Start new Game</button>
-<br>
 <br>
 
 <h2 class="subtitle txt" *ngIf="winner">
@@ -12,7 +12,7 @@
     Its a Tie... Try again !!!
 </h2>
 
-
+<br>
 <main class = "wrapp" >
     <app-square class="square"
         *ngFor="let val of squares; let i = index" 
@@ -23,4 +23,8 @@
 </main>
 <br>
 <br>
+<button class="button is-info is-inverted is-outlined"(click)="home()">Home</button>
+<br>
+<br>
 <button *ngIf="pwa.promptEvent" class="button is-success is-inverted is-outlined" (click) = "installPwa()"> Install App</button>
+</div>

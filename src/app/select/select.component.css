@@ -1,0 +1,85 @@
+
+h1, h3{ 
+    text-align: center;
+    font-size: 60px;
+    color: whitesmoke;
+}
+
+h3{
+    font-size: 24px;
+}
+
+.cont{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10%;
+    margin: 5%;
+    margin-left: 150px;
+    /* margin-top: 10% */
+}
+
+.card{
+    /* justify-self: center;
+    align-self: center; */
+    height: 60vh;
+    width: 60vh;
+    border-radius: 15%;
+}
+
+.single{
+    background-color: #2793DA;
+}
+
+.mutli{
+    background-color: #00C4A7;
+}
+.card-content, a  {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: khaki; */
+    border-radius: 15%;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    padding:0;
+}
+
+.single :hover{
+    width: 100%;
+    background-color: rgb(206, 231, 247);
+    transition: ease-in 0.8s;
+    color: #2793DA
+}
+
+.mutli :hover{
+    width: 100%;
+    background-color: rgb(186, 247, 238);
+    transition: ease-in 0.8s;
+    color: #00C4A7
+}
+
+@media screen and (max-width: 900px){
+    .cont{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: auto;
+
+        
+
+    }
+    .card {
+        width: 80%;
+        margin: 10%;
+        box-sizing: border-box;
+        
+        height: 30vh;
+        width: 75vw;
+    }
+}
